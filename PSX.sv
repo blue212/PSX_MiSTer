@@ -1720,7 +1720,7 @@ begin
 				if (selectedPort2Snac) pad2ID <= Receive;
 
 				if (Receive == 8'h80) bytesLeft <= 9'd32; //for multitap
-				else bytesLeft <= {5'd0, Receive[3:0] + 5'd0, Receive[3:0]};	
+				else bytesLeft <= {5'd0, (Receive[3:0] + Receive[3:0])};	
 			end
 		end
 		if (byteCnt == 4 && PStransfer == 1) begin //for pocketstation
